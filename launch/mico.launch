@@ -10,5 +10,5 @@
     command="cat $(find mico_simplified)/urdf/mico_simplified.URDF" />
 
 <!-- Spawn a robot into Gazebo -->
-<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model mico" />
+<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -z 2 -model mico" />
 </launch>
