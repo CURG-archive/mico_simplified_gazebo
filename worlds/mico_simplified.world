@@ -1,22 +1,35 @@
 <?xml version="1.0" ?>
-<sdf version="1.4">
+<sdf version="1.4">  
   <world name="default">
+    <physics type="ode">
+      <gravity xyz="0 0 -9.8"/>
+      <ode>
+	<solver> 
+	    <type>quick</type>
+	    <min_step_size>0.0001</min_step_size>
+	    <iters>1000</iters>
+	    <sor>1.3</sor>
+	</solver>
+	<constraints>
+	  <cfm>0.0</cfm> 
+	  <erp>0.1</erp>
+	  <contact_max_correcting_vel>10.0</contact_max_correcting_vel> 
+	  <contact_surface_layer>0.001</contact_surface_layer>
+	</constraints>
+      </ode>
+    </physics>
     <include>
       <uri>model://ground_plane</uri>
     </include>
     <include>
       <uri>model://sun</uri>
     </include>
+
     <include>
       <uri>model://kinect</uri>
       <name>kinect</name>
       <static>true</static>
       <pose>-2 0 2 0 0 0</pose>
-    </include>
- <include>
-      <uri>model://table</uri>
-      <name>table</name>
-      <pose>-0 0 0 0 0 0</pose>
     </include>
   </world>
 </sdf>
